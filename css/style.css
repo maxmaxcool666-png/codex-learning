@@ -214,6 +214,12 @@ li {
   margin-bottom: 0;
 }
 
+#certifications > h3 {
+  margin: 1rem 0 0;
+  color: var(--color-text);
+  font-size: 1.1rem;
+}
+
 #certifications article {
   padding: 1.5rem;
   border: 1px solid var(--color-border);
@@ -221,6 +227,13 @@ li {
   background: var(--color-surface);
   box-shadow: var(--shadow-subtle);
   transition: border-color 160ms ease, transform 160ms ease;
+}
+
+#certifications article h4 {
+  margin: 0 0 0.75rem;
+  color: var(--color-text);
+  font-size: 1.1rem;
+  line-height: 1.4;
 }
 
 #certifications article:hover {
@@ -333,7 +346,8 @@ footer p {
   }
 
   #certifications h2,
-  #certifications > p {
+  #certifications > p,
+  #certifications > h3 {
     grid-column: 1 / -1;
   }
 

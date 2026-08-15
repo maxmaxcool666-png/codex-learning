@@ -147,10 +147,33 @@ li {
   padding-bottom: 5rem;
 }
 
+#home h1 {
+  max-width: none;
+}
+
+#home .hero-name {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--color-primary);
+  font-size: 1.16em;
+  letter-spacing: -0.055em;
+}
+
 #home > p {
   max-width: 42rem;
   margin-bottom: 1.5rem;
   font-size: 1.125rem;
+}
+
+#home .hero-role {
+  max-width: 38rem;
+  font-size: clamp(1.125rem, 3vw, 1.35rem);
+  line-height: 1.7;
+}
+
+#home .hero-role strong {
+  color: var(--color-primary);
+  font-weight: 700;
 }
 
 #home > p:last-child {
@@ -334,6 +357,10 @@ footer p {
   #home {
     padding-top: 7rem;
     padding-bottom: 7rem;
+  }
+
+  #home .hero-role {
+    max-width: 44rem;
   }
 
   #skills ul {

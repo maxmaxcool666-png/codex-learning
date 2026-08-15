@@ -283,6 +283,13 @@ li {
   margin-bottom: 0.25rem;
 }
 
+#projects article h3 {
+  margin-bottom: 1rem;
+  font-size: clamp(1.3rem, 3vw, 1.6rem);
+  line-height: 1.4;
+  letter-spacing: -0.025em;
+}
+
 #projects article {
   padding: 1.5rem;
   border: 1px solid var(--color-border);
@@ -303,6 +310,80 @@ li {
 
 #projects article a {
   font-weight: 700;
+}
+
+#projects .project-type {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+#projects .project-technologies {
+  margin: 1.25rem 0;
+}
+
+#projects .project-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+#projects .project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#projects .project-tags li {
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-primary);
+  background: var(--color-soft);
+  font-size: 0.875rem;
+  line-height: 1.4;
+}
+
+#projects .project-status {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.25rem;
+}
+
+#projects .project-status .project-label {
+  margin-bottom: 0;
+}
+
+#projects .status-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+#projects .status-public {
+  border-color: var(--color-primary);
+  color: var(--color-primary);
+  background: var(--color-soft);
+}
+
+#projects .status-local {
+  color: var(--color-muted);
+  background: var(--color-background);
+}
+
+#projects .project-availability {
+  margin-bottom: 0;
+  font-size: 0.9375rem;
 }
 
 /* Experience and contact */

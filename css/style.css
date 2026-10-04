@@ -11,6 +11,7 @@
   --shadow-subtle: 0 8px 24px rgba(23, 32, 51, 0.06);
   --content-width: 70rem;
   --radius: 0.75rem;
+  --header-height: 4.5rem;
 }
 
 * {
@@ -39,9 +40,38 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
+/* Keyboard navigation */
+a:focus-visible,
+button:focus-visible,
+#main-content:focus-visible {
+  outline: 3px solid var(--color-primary-dark);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+  max-width: calc(100% - 2rem);
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius);
+  color: var(--color-text);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-subtle);
+  transform: translateY(calc(-100% - 2rem));
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
 /* Header and navigation */
 header {
-  background: rgba(255, 255, 255, 0.96);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--color-surface);
   border-bottom: 1px solid var(--color-border);
 }
 
@@ -88,16 +118,67 @@ nav li a:hover {
   color: var(--color-primary);
 }
 
+/* Enable the collapsed menu only after JavaScript has initialized it. */
+nav .menu-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  color: var(--color-text);
+  background: var(--color-surface);
+  font: inherit;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+nav.menu-enabled .menu-toggle {
+  display: flex;
+}
+
+nav.menu-enabled #nav-links {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--color-border);
+  max-height: calc(100dvh - 6rem);
+  overflow-y: auto;
+}
+
+nav.menu-enabled.menu-open #nav-links {
+  display: flex;
+}
+
+nav.menu-enabled #nav-links a {
+  display: block;
+  min-height: 44px;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Current reading section: underline remains identifiable without color. */
+nav > a.active,
+nav li a.active {
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.3em;
+}
+
 /* Shared section layout */
 main {
   padding-bottom: 1rem;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
 section {
   width: min(100% - 2rem, var(--content-width));
   margin: 0 auto;
   padding: 3.5rem 0;
-  scroll-margin-top: 1rem;
+  scroll-margin-top: calc(var(--header-height) + 1rem);
 }
 
 section + section {
@@ -454,6 +535,30 @@ footer p {
 
 /* Larger screens */
 @media (min-width: 48rem) {
+  :root {
+    --header-height: 6rem;
+  }
+
+  nav.menu-enabled .menu-toggle {
+    display: none;
+  }
+
+  nav.menu-enabled #nav-links,
+  nav.menu-enabled.menu-open #nav-links {
+    display: flex;
+    flex-direction: row;
+    width: auto;
+    padding-top: 0;
+    border-top: 0;
+    max-height: none;
+    overflow-y: visible;
+  }
+
+  nav.menu-enabled #nav-links a {
+    min-height: auto;
+    padding: 0.25rem 0;
+  }
+
   nav {
     width: min(100% - 4rem, var(--content-width));
   }
@@ -500,5 +605,23 @@ footer p {
 @media (min-width: 64rem) {
   #skills .skill-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Respect the user's preference for reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  #home > p:last-child a,
+  #certifications article,
+  #projects article {
+    transition: none;
+  }
+
+  #certifications article:hover,
+  #projects article:hover {
+    transform: none;
   }
 }

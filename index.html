@@ -189,6 +189,11 @@
               <h4>Information Technology Specialist - Databases</h4>
               <p>發證單位：Certiport (A Pearson VUE Business)</p>
               <p>取得日期：2026/05/30</p>
+              <button class="certificate-view" type="button"
+                data-certificate-title="Information Technology Specialist - Databases"
+                data-certificate-src="assets/certificates/its-databases.jpg"
+                data-certificate-alt="Information Technology Specialist - Databases 證書"
+                aria-haspopup="dialog" aria-controls="certificate-dialog">查看證書</button>
             </article>
 
             <article>
@@ -309,6 +314,13 @@
     <footer>
       <p>&copy; 2026 范祐綸。保留所有權利。</p>
     </footer>
+    <dialog id="certificate-dialog" class="certificate-dialog" aria-labelledby="certificate-dialog-title">
+      <div class="certificate-dialog-heading">
+        <h2 id="certificate-dialog-title">證書</h2>
+        <button class="certificate-close" type="button" autofocus>關閉</button>
+      </div>
+      <img class="certificate-image" alt="" />
+    </dialog>
     <script src="js/script.js"></script>
   </body>
 </html>

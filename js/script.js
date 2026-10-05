@@ -178,3 +178,60 @@
   window.addEventListener("load", updateFromPosition);
   window.addEventListener("pageshow", updateFromPosition);
 })();
+
+// 一個共用 Dialog；新增證書時只需在按鈕提供 data-certificate-* 資料。
+(() => {
+  const dialog = document.getElementById("certificate-dialog");
+  if (!dialog || typeof dialog.showModal !== "function") return;
+
+  const title = dialog.querySelector("#certificate-dialog-title");
+  const image = dialog.querySelector(".certificate-image");
+  const closeButton = dialog.querySelector(".certificate-close");
+  if (!title || !image || !closeButton) return;
+
+  let trigger = null;
+  let pointerStartedOutside = false;
+
+  document.querySelectorAll("button[data-certificate-src]").forEach((button) => {
+    button.addEventListener("click", () => {
+      if (dialog.open) return;
+      const data = button.dataset;
+      if (!data.certificateTitle || !data.certificateSrc || !data.certificateAlt) return;
+
+      trigger = button;
+      title.textContent = data.certificateTitle;
+      image.src = data.certificateSrc;
+      image.alt = data.certificateAlt;
+      dialog.showModal();
+    });
+  });
+
+  closeButton.addEventListener("click", () => dialog.close());
+  // 不攔截 Escape / cancel，保留瀏覽器原生 Dialog 關閉與焦點管理。
+  dialog.addEventListener("close", () => {
+    pointerStartedOutside = false;
+    if (trigger && trigger.isConnected && document.activeElement !== trigger) {
+      trigger.focus({ preventScroll: true });
+    }
+    trigger = null;
+  });
+
+  function isBackdropClick(event) {
+    if (event.target !== dialog) return false;
+    const rect = dialog.getBoundingClientRect();
+    return event.clientX < rect.left || event.clientX > rect.right ||
+      event.clientY < rect.top || event.clientY > rect.bottom;
+  }
+
+  // 起點與終點都在 Dialog 外才關閉，避免從圖片拖曳到外面造成誤關閉。
+  dialog.addEventListener("pointerdown", (event) => {
+    pointerStartedOutside = isBackdropClick(event);
+  });
+  dialog.addEventListener("pointercancel", () => {
+    pointerStartedOutside = false;
+  });
+  dialog.addEventListener("click", (event) => {
+    if (pointerStartedOutside && isBackdropClick(event)) dialog.close();
+    pointerStartedOutside = false;
+  });
+})();

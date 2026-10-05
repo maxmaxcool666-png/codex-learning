@@ -43,6 +43,7 @@ a:hover {
 /* Keyboard navigation */
 a:focus-visible,
 button:focus-visible,
+summary:focus-visible,
 #main-content:focus-visible {
   outline: 3px solid var(--color-primary-dark);
   outline-offset: 4px;
@@ -346,13 +347,55 @@ li {
   margin-bottom: 0;
 }
 
-#certifications > h3 {
-  margin: 1rem 0 0;
+#certifications .certification-group {
+  min-width: 0;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  background: var(--color-surface);
+}
+
+/* Keep the native disclosure triangle and keyboard behavior. */
+#certifications summary {
+  padding: 1rem;
+  border-radius: var(--radius);
+  color: var(--color-text);
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+
+#certifications summary h3 {
+  display: inline;
+  margin: 0;
   color: var(--color-text);
   font-size: 1.1rem;
 }
 
+#certifications .certification-count {
+  display: inline-block;
+  color: var(--color-muted);
+  font-size: 0.9375rem;
+  font-weight: 400;
+}
+
+#certifications summary:hover {
+  background: var(--color-soft);
+}
+
+#certifications .certification-group[open] > summary {
+  border-bottom: 1px solid var(--color-border);
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+#certifications .certification-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+}
+
 #certifications article {
+  min-width: 0;
+  overflow-wrap: anywhere;
   padding: 1.5rem;
   border: 1px solid var(--color-border);
   border-radius: var(--radius);
@@ -581,15 +624,9 @@ footer p {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  #certifications {
-    grid-template-columns: repeat(2, 1fr);
+  #certifications .certification-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 1.25rem;
-  }
-
-  #certifications h2,
-  #certifications > p,
-  #certifications > h3 {
-    grid-column: 1 / -1;
   }
 
   #projects {

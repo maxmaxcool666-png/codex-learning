@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="zh-Hant">
   <head>
+    <!-- SEO / Open Graph：頁面資訊與分享摘要 -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>范祐綸｜個人作品集</title>
@@ -11,6 +12,7 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <!-- Header / Navigation / Skip Link：主要導覽與鍵盤跳轉 -->
     <a class="skip-link" href="#main-content">跳到主要內容</a>
     <header>
       <nav aria-label="主要導覽">
@@ -31,6 +33,7 @@
     </header>
 
     <main id="main-content" tabindex="-1">
+      <!-- Home / Hero：首頁介紹 -->
       <section id="home" aria-labelledby="home-title">
         <h1 id="home-title">你好，我是<span class="hero-name">范祐綸</span></h1>
         <p class="hero-role">致力於<strong>網路技術、資料庫與前端開發</strong>的資訊技術學習者。</p>
@@ -40,6 +43,7 @@
         </p>
       </section>
 
+      <!-- About：關於我 -->
       <section id="about" aria-labelledby="about-title">
         <h2 id="about-title">關於我</h2>
         <p>
@@ -56,6 +60,7 @@
         </p>
       </section>
 
+      <!-- Skills：分類技能卡片 -->
       <section id="skills" aria-labelledby="skills-title">
         <h2 id="skills-title">技能</h2>
         <div class="skill-grid">
@@ -114,6 +119,7 @@
         </div>
       </section>
 
+      <!-- Certifications：機構分類與證書按鈕 -->
       <section id="certifications" aria-labelledby="certifications-title">
         <h2 id="certifications-title">證照／認證</h2>
         <p>以下依發證／認證機構分類，記錄我在資訊技術、程式設計、網路、資料庫、AI 與語文能力上的學習成果。</p>
@@ -308,6 +314,7 @@
         </details>
       </section>
 
+      <!-- Projects：課程作品 -->
       <section id="projects" aria-labelledby="projects-title">
         <h2 id="projects-title">作品集</h2>
 
@@ -345,16 +352,18 @@
         </article>
       </section>
 
+      <!-- Experience：學習里程碑 -->
       <section id="experience" aria-labelledby="experience-title">
         <h2 id="experience-title">學習／經歷</h2>
         <ol>
           <li><strong>2024–2025</strong>：透過資訊相關課程與證照學習，累積電子商務、網路、Python、雲端運算等資訊技術基礎能力。</li>
           <li><strong>2025–2026</strong>：持續學習網頁開發、網路技術、資料庫與系統環境設定，並透過課程與實作累積技術經驗。</li>
-          <li><strong>2026</strong>：在網站設計與管理課程中完成「綠遊智行」專題，從期中網站延伸至使用 XAMPP 與 Joomla 建立的本機網站。</li>
+          <li><strong>2026</strong>：在網站設計與管理課程中完成「綠遊智行」專題，從期中網站延伸至使用 XAMPP 與 Joomla 在本機開發的期末 CMS 網站，目前已公開上線。這是課程專題，不是正式商業平台。<a href="https://greentravel.rf.gd/" target="_blank" rel="noopener noreferrer">查看期末網站</a></li>
           <li><strong>2026/08</strong>：開始建立個人 Portfolio，使用 HTML、CSS、Git、GitHub 與 Codex 實際進行網站開發、版本控制與持續學習。</li>
         </ol>
       </section>
 
+      <!-- Contact：聯絡方式 -->
       <section id="contact" aria-labelledby="contact-title">
         <h2 id="contact-title">聯絡方式</h2>
         <p>歡迎透過以下方式與我聯絡：</p>
@@ -376,16 +385,22 @@
       </section>
     </main>
 
+    <!-- Footer：頁尾資訊 -->
     <footer>
       <p>&copy; 2026 范祐綸。保留所有權利。</p>
     </footer>
+
+    <!-- Shared Certificate Dialog：14 張證書共用同一個查看器 -->
     <dialog id="certificate-dialog" class="certificate-dialog" aria-labelledby="certificate-dialog-title">
       <div class="certificate-dialog-heading">
         <h2 id="certificate-dialog-title">證書</h2>
         <button class="certificate-close" type="button" autofocus>關閉</button>
       </div>
-      <img class="certificate-image" alt="" />
+      <img class="certificate-image" src="assets/certificates/its-databases.jpg"
+        alt="Information Technology Specialist - Databases 證書" loading="lazy" />
     </dialog>
+
+    <!-- JavaScript Entry：原生互動功能入口 -->
     <script src="js/script.js"></script>
   </body>
 </html>

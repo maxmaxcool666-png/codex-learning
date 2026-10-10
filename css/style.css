@@ -1,4 +1,5 @@
-/* Base and design tokens */
+/* 分類編號依功能對應；維持既有規則順序，不為排序改動 cascade。 */
+/* 01. 設計變數與全域基礎 */
 :root {
   --color-background: #f7f9fc;
   --color-surface: #ffffff;
@@ -40,7 +41,7 @@ a:hover {
   color: var(--color-primary-dark);
 }
 
-/* Keyboard navigation */
+/* 02. 無障礙與鍵盤焦點 */
 a:focus-visible,
 button:focus-visible,
 summary:focus-visible,
@@ -67,7 +68,7 @@ summary:focus-visible,
   transform: translateY(0);
 }
 
-/* Header and navigation */
+/* 03. Header / Navigation / Hamburger：固定導覽與手機選單 */
 header {
   position: sticky;
   top: 0;
@@ -119,7 +120,7 @@ nav li a:hover {
   color: var(--color-primary);
 }
 
-/* Enable the collapsed menu only after JavaScript has initialized it. */
+/* 僅在 JavaScript 初始化後啟用收合；停用 JS 時仍可使用完整導覽。 */
 nav .menu-toggle {
   display: none;
   align-items: center;
@@ -160,7 +161,7 @@ nav.menu-enabled #nav-links a {
   padding: 0.5rem 0.75rem;
 }
 
-/* Current reading section: underline remains identifiable without color. */
+/* 閱讀區塊使用底線提示，避免只靠顏色辨識 active 狀態。 */
 nav > a.active,
 nav li a.active {
   color: var(--color-primary);
@@ -169,7 +170,7 @@ nav li a.active {
   text-underline-offset: 0.3em;
 }
 
-/* Shared section layout */
+/* 04. 共用 Layout / Typography：內容寬度、錨點間距與字體層次 */
 main {
   padding-bottom: 1rem;
   scroll-margin-top: calc(var(--header-height) + 1rem);
@@ -223,7 +224,7 @@ li {
   color: var(--color-muted);
 }
 
-/* Hero */
+/* 05. Home / Hero：首頁視覺層次 */
 #home {
   padding-top: 5rem;
   padding-bottom: 5rem;
@@ -290,7 +291,7 @@ li {
   background: var(--color-primary);
 }
 
-/* Skills */
+/* 06. Skills：分類技能卡片 */
 #skills .skill-grid {
   display: grid;
   grid-template-columns: 1fr;
@@ -335,7 +336,7 @@ li {
   font-weight: 700;
 }
 
-/* Certifications */
+/* 07. Certifications / Details：分類收合與證照卡片 */
 #certifications {
   display: grid;
   grid-template-columns: 1fr;
@@ -354,7 +355,7 @@ li {
   background: var(--color-surface);
 }
 
-/* Keep the native disclosure triangle and keyboard behavior. */
+/* 保留 details / summary 原生展開提示與鍵盤操作。 */
 #certifications summary {
   padding: 1rem;
   border-radius: var(--radius);
@@ -424,7 +425,7 @@ li {
   font-weight: 700;
 }
 
-/* Shared certificate viewer: native dialog handles the modal focus boundary. */
+/* 10. Shared Certificate Dialog：共用查看器，焦點邊界由原生 dialog 管理 */
 .certificate-view,
 .certificate-close {
   min-height: 44px;
@@ -489,7 +490,7 @@ li {
   margin: 0 auto;
 }
 
-/* Projects */
+/* 08. Projects：作品卡片、技術標籤與狀態 */
 #projects {
   display: grid;
   grid-template-columns: 1fr;
@@ -603,7 +604,7 @@ li {
   font-size: 0.9375rem;
 }
 
-/* Experience and contact */
+/* 09. Experience / Contact：學習里程碑與聯絡資訊 */
 #experience ol,
 #contact ul {
   display: grid;
@@ -628,7 +629,7 @@ li {
   font-weight: 600;
 }
 
-/* Footer */
+/* 11. Footer：頁尾資訊 */
 footer {
   padding: 1.5rem 1rem;
   border-top: 1px solid var(--color-border);
@@ -641,7 +642,7 @@ footer p {
   font-size: 0.875rem;
 }
 
-/* Larger screens */
+/* 12. RWD：48rem 起完整導覽與兩欄卡片；64rem 起技能三欄 */
 @media (min-width: 48rem) {
   :root {
     --header-height: 6rem;
@@ -710,7 +711,7 @@ footer p {
   }
 }
 
-/* Respect the user's preference for reduced motion */
+/* 13. Reduced Motion：尊重減少動態效果偏好 */
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -4,7 +4,9 @@
 
 這是范祐綸的個人 Portfolio，以純 HTML、CSS 與 JavaScript 製作，呈現就讀致理科技大學期間的資訊技術學習、證照認證與課程專題成果。
 
-專案從 Git 與網頁基礎練習逐步發展而來，主要學習方向為網路技術、資料庫與前端開發。網站可直接在瀏覽器開啟，不需要安裝套件或執行建置指令。本文件目前未列出 Portfolio 正式部署網址。
+專案從 Git 與網頁基礎練習逐步發展而來，主要學習方向為網路技術、資料庫與前端開發。網站可直接在瀏覽器開啟，不需要安裝套件或執行建置指令，目前已透過 GitHub Pages 正式部署，並由作者完成公開網站實測。
+
+[線上作品集](https://maxmaxcool666-png.github.io/codex-learning/)
 
 ## 目前網站功能與已完成項目
 
@@ -133,9 +135,20 @@ git ls-files assets/certificates/
 
 ## GitHub Pages 部署狀態
 
-本 Portfolio 尚未確認正式部署，README 不列出未確認的 Demo 或 Portfolio 正式網址。期中／期末課程作品的公開網址不代表本 Portfolio 已上線。
+本 Portfolio 已成功部署至 GitHub Pages，並由作者完成公開網站實測。部署資訊如下：
 
-網站使用相對資源路徑，可規劃以 `main` branch 的 repository root 作為 GitHub Pages 發布來源；這是部署規劃，不表示 GitHub 設定或部署已完成。部署後需再確認正式網址、CSS／JS／14 張圖片載入與所有互動，取得正式 URL 後才補上 `og:url`；沒有真實分享素材時不填假的 `og:image`。
+- Source：`Deploy from a branch`
+- Branch：`main`
+- Folder：`/(root)`
+- 公開網址：[個人 Portfolio](https://maxmaxcool666-png.github.io/codex-learning/)
+
+網站使用相對資源路徑，`og:url` 已設定為上述正式 Portfolio 網址；目前沒有 Open Graph 圖片素材，因此不加入假的 `og:image`。後續更新部署後仍需檢查 CSS／JS／14 張圖片載入與所有互動。
+
+網址用途明確區分如下，課程專題不是正式商業產品或營運平台：
+
+- 個人 Portfolio：[線上作品集](https://maxmaxcool666-png.github.io/codex-learning/)
+- 綠遊智行期中課程專題：[期中網站](https://maxmaxcool666-png.github.io/HW1/)
+- 綠遊智行期末 Joomla 課程專題：[期末網站](https://greentravel.rf.gd/)
 
 ## 相關課程作品
 
@@ -158,7 +171,6 @@ git ls-files assets/certificates/
 以下為規劃項目，尚未實作：
 
 - Dark Mode 與系統主題偏好支援。
-- 確認 Portfolio 正式部署網址後補上 og:url。
 - 有合適的真實素材後加入作品截圖與 Open Graph 分享圖片。
 - 持續補充真實學習成果與專案內容。
 - 持續進行跨瀏覽器、手機尺寸、鍵盤與無障礙驗證。

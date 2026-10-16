@@ -1,8 +1,8 @@
-# 范祐綸｜個人作品集
+# Codex製作｜個人作品集
 
 ## 專案簡介
 
-這是范祐綸的個人 Portfolio，以純 HTML、CSS 與 JavaScript 製作，呈現就讀致理科技大學期間的資訊技術學習、證照認證與課程專題成果。
+這是使用Codex協助製作的個人 Portfolio，以純 HTML、CSS 與 JavaScript 製作，呈現就讀大學期間的資訊技術學習、證照認證與課程專題成果。
 
 專案從 Git 與網頁基礎練習逐步發展而來，主要學習方向為網路技術、資料庫與前端開發。網站可直接在瀏覽器開啟，不需要安裝套件或執行建置指令，目前已透過 GitHub Pages 正式部署，並由作者完成公開網站實測。
 
@@ -51,7 +51,7 @@ codex-learning/
 ### 檔案責任與整理原則
 
 - `index.html`：真實個人資料、各區塊內容、SEO／Open Graph、證照分類、查看按鈕與唯一共用 dialog。以區塊註解標示維護位置。
-- `css/style.css`：設計變數、視覺版面、鍵盤焦點、RWD 與 reduced-motion。使用 01～13 功能分類；保留既有規則順序與 cascade，不為編號排序移動規則。
+- `css/style.css`：設計變數、視覺版面、鍵盤焦點、RWD 與 reduced-motion。使用 01～13 功能分類；保留既有規則順序，不為編號排序移動規則。
 - `js/script.js`：01 手機選單與 Header 高度、02 Scroll Spy、03 共用證書 Dialog。三個模組各自封裝；修改其中一項時也要檢查原生 hash 與鍵盤操作。
 - `assets/certificates/`：目前 14 張真實證書圖片；檔名大小寫須與 HTML 路徑完全一致。
 - `README.md`：功能、檔案責任、內容更新方式、測試與部署狀態的維護說明。
@@ -90,11 +90,11 @@ JavaScript 讀取按鈕資料，更新唯一共用 dialog 的標題與圖片，�
 5. 既有通用 selector 會處理所有 `button[data-certificate-src]`；不新增 dialog，也不複製每張證書的 JavaScript。
 6. 改名或替換圖片時，檢查所有引用；若更新初始 Databases 圖片，也要同步共用 dialog 的初始 src／alt。
 
-| 資料屬性 | 用途 | 現有 Databases 範例 |
-|---|---|---|
-| `data-certificate-title` | 完整證照名稱／dialog 標題 | `Information Technology Specialist - Databases` |
-| `data-certificate-src` | 相對於 index.html 的圖片路徑 | `assets/certificates/its-databases.jpg` |
-| `data-certificate-alt` | 完整證照名稱加「證書」 | `Information Technology Specialist - Databases 證書` |
+| 資料屬性                 | 用途                         | 現有 Databases 範例                                  |
+| ------------------------ | ---------------------------- | ---------------------------------------------------- |
+| `data-certificate-title` | 完整證照名稱／dialog 標題    | `Information Technology Specialist - Databases`      |
+| `data-certificate-src`   | 相對於 index.html 的圖片路徑 | `assets/certificates/its-databases.jpg`              |
+| `data-certificate-alt`   | 完整證照名稱加「證書」       | `Information Technology Specialist - Databases 證書` |
 
 ### 新增作品
 
